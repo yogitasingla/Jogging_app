@@ -1,0 +1,138 @@
+
+<h3>Enter Details please</h3>
+
+<mat-card>
+  <mat-card-content>
+
+
+  <mat-horizontal-stepper labelPosition="bottom" #stepper>
+    <mat-step [stepControl]="firstFormGroup" state="date">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Fill out the Date </ng-template>
+        <mat-form-field>
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="picker1"
+          [(ngModel)]="date"
+          placeholder="Choose Date from Calender" formControlName="firstCtrl" required>
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+       </mat-step>
+
+
+
+  <mat-step [stepControl]="secondFormGroup" state="distance">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your Travel Distance</ng-template>
+    <div class="distanceDiv">
+      <mat-form-field>
+
+        <mat-label>Disatnce Travel (in meter)</mat-label>
+
+        <input type="number" matInput formControlName="secondCtrl"
+        [(ngModel)]="distance"
+        placeholder="Enter distance in meter"
+        required>
+
+
+               <!-- <mat-select disableRipple>
+                <mat-option value="m">meter(m)</mat-option>
+                <mat-option value="km">Kilometer(km)</mat-option>
+
+              </mat-select> -->
+
+
+      </mat-form-field>
+    </div>
+
+
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+
+    </form>
+
+
+  </mat-step>
+
+
+
+  <mat-step [stepControl]="thirdFormGroup" state="time">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Fill out the total Travelling Duration </ng-template>
+
+        <!-- <div>
+        <div class="time">
+          <mat-form-field class="field" appearance="outline">
+              <mat-label>Start Time</mat-label>
+              <input matInput type="time" placeholder="HH:MM" id="end_time_hour" formControlName="thirdCtrl">
+           <mat-select name="ampm" class="ampm" >
+                <mat-option value="AM">AM</mat-option>
+                <mat-option value="PM">PM</mat-option>
+           </mat-select>
+         </mat-form-field>
+      </div> -->
+
+        <!-- <div class="time">
+          <mat-form-field class="field" appearance="outline">
+              <mat-label>End Time</mat-label>
+              <input matInput type="time" placeholder="HH:MM" id="end_time_hour" formControlName="thirdCtrl">
+           <mat-select name="ampm" class="ampm" >
+                <mat-option value="AM">AM</mat-option>
+                <mat-option value="PM">PM</mat-option>
+           </mat-select>
+         </mat-form-field>
+      </div> -->
+      <mat-form-field>
+   <input type="number"  matInput
+    formControlName="thirdCtrl"
+    [(ngModel)]="duration"
+    placeholder="In Secound">
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    <!-- </div> -->
+    </form>
+     </mat-step>
+
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+   <!-- Icon overrides. -->
+   <ng-template matStepperIcon="date">
+    <mat-icon>date_range</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="time">
+    <mat-icon>access_time</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="distance">
+  <mat-icon> directions_run</mat-icon>
+</ng-template>
+</mat-horizontal-stepper>
+</mat-card-content>
+</mat-card>
+<button type="submit" (click)="onSubmit()">Submit</button>
+<button type="submit" (click)="onlist()">Weakly List</button>
+
+<!-- <P>{{this.date}}</P>
+<p>{{this.duration}}</p>
+<p>{{this.distance}}</p>
+<label>Now the spedd is </label>
+<p>{{this.speed}}</p> -->
+
+
+
+
+

@@ -1,0 +1,18 @@
+.mat-form-field {
+  margin-top: 16px;
+}
+.distanceDiv .mat-form-field-infix {
+  display: inherit;
+}
+::ng-deep .mat-select-value {
+  font-size: 100%;
+}
+/* .time-picker-component .field-infix {
+  display: inherit;
+} */
+.time{
+  display:flex;
+  float: left;
+  flex-direction: row;
+
+}
